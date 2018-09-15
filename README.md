@@ -1,1 +1,1 @@
-# python programs
+# python programs for information gathering
