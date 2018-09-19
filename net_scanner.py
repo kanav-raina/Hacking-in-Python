@@ -10,5 +10,5 @@ def scan(ip):
         print(element[1].psrc)    
         print(element[1].hwsrc)    
         print("---------------------------------------")
-
-scan("172.17.221.1/24")
+ip =input("Enter your ip : ")
+scan(ip)
